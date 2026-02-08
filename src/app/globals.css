@@ -3,5 +3,248 @@
 body {
   background: #000;
   color: #fff;
-  font-family: var(--font-cinzel), serif;
+  font-family: var(--font-modern), sans-serif;
+}
+
+@layer components {
+  .rg-page {
+    @apply flex min-h-screen w-full flex-col;
+  }
+
+  .rg-hero {
+    @apply relative flex-1;
+  }
+
+  .rg-hero-bg {
+    @apply absolute inset-0 -z-10 overflow-hidden;
+  }
+
+  .rg-top-band {
+    @apply hidden md:flex absolute top-0 left-0 right-0 h-10 lg:h-60 items-start pt-6 z-10;
+  }
+
+  .rg-top-band-inner {
+    @apply mx-auto flex w-full max-w-5xl items-center justify-between px-8 relative;
+  }
+
+  .rg-top-logo {
+    @apply h-auto w-[120px];
+  }
+
+  .rg-top-social {
+    @apply flex items-center;
+  }
+
+  .rg-release-center {
+    @apply absolute left-1/2 top-[clamp(237.6px,35.64vh,356.4px)] md:top-40 w-full -translate-x-1/2 px-6;
+  }
+
+  .rg-release-center-inner {
+    @apply mx-auto flex w-full max-w-6xl flex-col items-center text-center;
+  }
+
+  .rg-release-logo {
+    @apply mt-3 w-[90vw] max-w-[280px] md:max-w-[340px];
+  }
+
+  .rg-release-subtitle {
+    @apply mt-3 w-[90vw] max-w-[400px] md:max-w-[480px] font-[var(--font-modern)] text-[clamp(14px,1.6vw,20px)] font-medium uppercase tracking-[0.3em] text-[#1a1a1a];
+  }
+
+  .rg-release-landscape {
+    @apply hidden absolute bottom-10 left-0 right-0 w-full;
+  }
+
+  .rg-release-landscape-inner {
+    @apply mx-auto flex w-full max-w-5xl items-end justify-end px-8;
+  }
+
+  .rg-release-landscape-content {
+    @apply flex flex-col items-end text-right;
+  }
+
+  .rg-release-landscape-text {
+    @apply mt-1 font-[var(--font-modern)] text-[18px] font-medium uppercase tracking-[0.25em] text-white;
+  }
+
+  .rg-presave {
+    @apply absolute bottom-10 left-1/2 w-full -translate-x-1/2 px-6;
+  }
+
+  .rg-presave-inner {
+    @apply mx-auto flex w-full max-w-6xl justify-center;
+  }
+
+  .rg-presave-button {
+    @apply flex w-[45vw] max-w-[260px] items-center justify-center rounded-full border border-[#1f3b2a] border-2 bg-white/30 px-5 py-3 text-center font-[var(--font-modern)] text-[clamp(14px,1.8vw,18px)] font-bold uppercase tracking-[0.28em] text-[#1f3b2a] backdrop-blur-sm transition-transform duration-200 ease-out hover:scale-110;
+  }
+
+  .rg-mobile-content {
+    @apply flex min-h-screen md:min-h-0 flex-col items-center px-6 py-8 md:py-12;
+  }
+
+  .rg-mobile-logo {
+    @apply h-auto w-[182px] md:hidden;
+  }
+
+  .rg-mobile-social {
+    @apply mt-1 w-[168.75px] md:hidden;
+  }
+
+  .rg-mobile-social-row {
+    @apply flex items-center justify-center;
+  }
+
+  .rg-bottom-band {
+    @apply hidden md:flex h-12 items-center justify-center bg-black px-8;
+  }
+
+  .rg-top-band-blur {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* Largest desktop devices only - re-enable top band blur */
+@media (min-width: 1440px) and (hover: hover) and (pointer: fine) {
+  .rg-top-band-blur {
+    backdrop-filter: blur(40px) !important;
+    -webkit-backdrop-filter: blur(40px) !important;
+  }
+}
+
+/* Tablet landscape mode - landscape orientation with limited height (e.g. iPad landscape) */
+@media (min-width: 768px) and (min-aspect-ratio: 4/3) and (max-height: 900px) {
+  .tablet-landscape-invert {
+    filter: brightness(0) invert(1);
+  }
+  
+  .tablet-landscape-scale-down {
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+  
+  .tablet-landscape-blur-reduced {
+    height: 2rem !important;
+  }
+}
+
+/* iPad Pro 12.9" portrait - remove top band blur */
+@media (width: 1024px) and (height: 1366px) and (orientation: portrait) {
+  .rg-top-band-blur {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+
+/* iPad Pro 12.9" landscape - remove top band blur and invert top band content */
+@media (width: 1366px) and (height: 1024px) and (orientation: landscape) {
+  .rg-top-band-blur {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .tablet-landscape-invert {
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* Surface Pro 7 landscape - treat like tablet (invert, remove blur, hide footer) */
+@media (width: 1368px) and (height: 912px) and (orientation: landscape) {
+  .rg-top-band-blur {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .tablet-landscape-invert {
+    filter: brightness(0) invert(1);
+  }
+
+  .rg-bottom-band {
+    display: none !important;
+  }
+}
+
+/* Tablets - hide footer in portrait and landscape */
+@media (min-width: 768px) and (max-width: 1366px) and (hover: none) and (pointer: coarse) {
+  .rg-top-band-blur {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .rg-bottom-band {
+    display: none !important;
+  }
+}
+
+/* Wide aspect screens - add side vignettes */
+@media (min-aspect-ratio: 9/5) {
+  .ultrawide-vignette-left,
+  .ultrawide-vignette-right {
+    display: block !important;
+  }
+}
+
+/* Even more extreme ultrawide (32:9 etc) */
+@media (min-aspect-ratio: 5/2) {
+  .ultrawide-vignette-left {
+    width: 30% !important;
+  }
+  
+  .ultrawide-vignette-right {
+    width: 30% !important;
+  }
+}
+
+/* Wide aspect layout - move elements to bottom right */
+@media (min-aspect-ratio: 9/5) {
+  /* Hide elements on mobile landscape */
+  .mobile-landscape-hide {
+    display: none !important;
+  }
+  
+  /* Hide the centered release block in landscape */
+  .mobile-landscape-hide-release {
+    display: none !important;
+  }
+  
+  /* Show the landscape-specific elements */
+  .mobile-landscape-show {
+    display: flex !important;
+  }
+  
+  /* Make the Dandelion logo white */
+  .mobile-landscape-white-svg {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* Scale down and reposition for landscape */
+  .mobile-landscape-scale {
+    transform: scale(0.65);
+    transform-origin: bottom right;
+  }
+  
+  /* Smaller presave button */
+  .mobile-landscape-btn-small {
+    transform: scale(0.75);
+    width: auto !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+  
+  /* Invert top band elements to white for dark background */
+  .mobile-landscape-invert {
+    filter: brightness(0) invert(1);
+  }
+  
+  /* Use desktop background positioning in mobile landscape */
+  .mobile-landscape-bg-bottom {
+    object-position: bottom !important;
+  }
+  
+  /* Show side vignettes in mobile landscape */
+  .ultrawide-vignette-left,
+  .ultrawide-vignette-right {
+    display: block !important;
+  }
 }

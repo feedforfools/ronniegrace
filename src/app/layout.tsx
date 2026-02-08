@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+
+const modernCapsFont = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "600"],
+  variable: "--font-modern",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Ronnie Grace | Official Website",
@@ -27,7 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className={`${modernCapsFont.variable} antialiased`}>
         {children}
         <Analytics />
       </body>
