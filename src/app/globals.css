@@ -77,7 +77,7 @@ body {
   }
 
   .rg-release-subtitle {
-    @apply mt-3 font-medium uppercase text-[#1a1a1a];
+    @apply mt-3 font-medium uppercase text-[#1f3b2a];
     font-family: var(--font-modern), sans-serif;
     font-size: clamp(14px, 2vw, 20px);
     letter-spacing: 0.3em;
@@ -104,6 +104,65 @@ body {
     font-size: clamp(14px, 2vw, 18px);
     letter-spacing: 0.25em;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  /* ===== STREAMING ICONS (shown after release) ===== */
+  .rg-streaming-icons {
+    @apply mt-2 flex items-center justify-center gap-5;
+    color: #1f3b2a;
+  }
+
+  .rg-streaming-icons-landscape {
+    @apply mt-1 flex items-center justify-end gap-5;
+    color: #ffffff;
+  }
+
+  .rg-streaming-icon {
+    @apply transition-transform duration-200 ease-out hover:scale-110;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    line-height: 0;
+  }
+
+  .rg-streaming-icon svg {
+    display: block;
+  }
+
+  @media (max-width: 767px) and (orientation: portrait) {
+    .rg-release-center-post {
+      top: clamp(170px, 28vh, 320px);
+    }
+
+    .rg-release-subtitle {
+      font-size: clamp(16px, 4.5vw, 22px);
+    }
+
+    .rg-streaming-icons svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  @media (max-height: 700px) and (max-width: 420px) and (orientation: portrait) {
+    .rg-release-logo {
+      width: min(70vw, 310px);
+    }
+
+    .rg-release-subtitle {
+      font-size: clamp(14px, 4vw, 18px);
+    }
+
+    .rg-streaming-icons {
+      gap: 12px;
+    }
+
+    .rg-streaming-icons svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   /* ===== PRESAVE BUTTON ===== */

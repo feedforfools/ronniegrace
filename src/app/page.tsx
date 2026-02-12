@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { SocialIcon } from "react-social-icons";
+import { SiApple, SiSpotify, SiTidal, SiYoutube } from "react-icons/si";
 
 export default function Home() {
   return (
@@ -90,7 +93,7 @@ export default function Home() {
         </div>
 
         {/* Release block - centered (hidden on wide aspect ratios) */}
-        <div className="rg-release-center mobile-landscape-hide-release">
+        <div className="rg-release-center rg-release-center-post mobile-landscape-hide-release">
           <div className="rg-release-center-inner">
             <div className="rg-release-logo">
               <Image
@@ -102,7 +105,45 @@ export default function Home() {
                 priority
               />
             </div>
-            <p className="rg-release-subtitle">OUT ON FEB 13</p>
+            <p className="rg-release-subtitle">OUT NOW</p>
+            <div className="rg-streaming-icons">
+              <a
+                href="https://open.spotify.com/album/6EfaiewnYYMJiUVFADRUc1?si=2_zxsaJySeW896_jZr-qIg"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Spotify"
+                className="rg-streaming-icon"
+              >
+                <SiSpotify size={30} />
+              </a>
+              <a
+                href="https://music.youtube.com/playlist?list=OLAK5uy_lFzmRubmys_J0RwaWo3UAjHl_1iVpznHs"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube Music"
+                className="rg-streaming-icon"
+              >
+                <SiYoutube size={30} />
+              </a>
+              <a
+                href="https://music.apple.com/it/album/dandelion-single/1868087095"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Apple Music"
+                className="rg-streaming-icon"
+              >
+                <SiApple size={30} />
+              </a>
+              <a
+                href="https://tidal.com/album/488761048"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tidal"
+                className="rg-streaming-icon"
+              >
+                <SiTidal size={30} />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -120,21 +161,46 @@ export default function Home() {
                   priority
                 />
               </div>
-              <p className="rg-release-landscape-text">OUT ON FEB 13</p>
+              <p className="rg-release-landscape-text">OUT NOW</p>
+              <div className="rg-streaming-icons-landscape">
+                <a
+                  href="https://open.spotify.com/album/6EfaiewnYYMJiUVFADRUc1?si=2_zxsaJySeW896_jZr-qIg"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Spotify"
+                  className="rg-streaming-icon"
+                >
+                  <SiSpotify size={26} />
+                </a>
+                <a
+                  href="https://music.youtube.com/playlist?list=OLAK5uy_lFzmRubmys_J0RwaWo3UAjHl_1iVpznHs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube Music"
+                  className="rg-streaming-icon"
+                >
+                  <SiYoutube size={26} />
+                </a>
+                <a
+                  href="https://music.apple.com/it/album/dandelion-single/1868087095"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Apple Music"
+                  className="rg-streaming-icon"
+                >
+                  <SiApple size={26} />
+                </a>
+                <a
+                  href="https://tidal.com/album/488761048"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Tidal"
+                  className="rg-streaming-icon"
+                >
+                  <SiTidal size={26} />
+                </a>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className="rg-presave">
-          <div className="rg-presave-inner">
-            <a
-              href="https://ditto.fm/ronnie_grace-dandelion"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rg-presave-button mobile-landscape-btn-small"
-            >
-              PRE-SAVE
-            </a>
           </div>
         </div>
 
